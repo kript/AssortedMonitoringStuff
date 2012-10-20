@@ -21,9 +21,12 @@ my $ilo = Net::ILO->new({
         debug		=> '0', #set up to 2 to get verbose XML & transcript of connection
 });
 
+
 my $power_status = $ilo->power or die $ilo->error;
 
+#print two of the same value for [IN] and [OUT]
 # something like 340
+say $ilo->power_consumption;
 say $ilo->power_consumption;
     
 __END__

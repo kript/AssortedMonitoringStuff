@@ -25,8 +25,10 @@ my $temperatures = $ilo->temperatures or die $ilo->error;
 
     foreach my $sensor (@$temperatures) {
     
+    	#print two of the same value for [IN] and [OUT]
     	#I only care about room temp, but you might not..
     	next unless $sensor->{location} eq "Ambient";
+    	say "$sensor->{value}";
     	say "$sensor->{value}";
 
         #print "    Name: ", $sensor->{name},     "\n";
